@@ -1,4 +1,4 @@
-package com.ts;
+package com.itheima.consumer;
 
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
@@ -6,19 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-/**
- * @author ts happy boy
- * @title ${NAME}
- * @date ${DATE} ${TIME}
- * @description TODO
- */
 @SpringBootApplication
-public class RabbitDemo2 {
+public class ConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(RabbitDemo2.class);
+        SpringApplication.run(ConsumerApplication.class, args);
     }
+
     @Bean
-    public MessageConverter jacksonConvertor(){
+    public MessageConverter jacksonMessageConvertor(){
         return new Jackson2JsonMessageConverter();
     }
 }

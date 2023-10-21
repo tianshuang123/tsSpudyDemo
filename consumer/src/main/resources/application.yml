@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    host: 192.168.228.130
+    port: 5672
+    virtual-host: /
+    username: guest
+    password: guest
+    listener:
+      simple:
+        prefetch: 1
+        acknowledge-mode: auto #确认极致
+        retry:
+          enabled: true #开启失败充实
+server:
+  port: 8081

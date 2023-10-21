@@ -16,6 +16,9 @@
     <modules>
         <module>rabbitmq-demo1</module>
         <module>rabbitmq-demo2</module>
+        <module>publisher</module>
+        <module>consumer</module>
+        <module>rabbitmq-demo</module>
     </modules>
 
 
@@ -38,6 +41,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 </project>
