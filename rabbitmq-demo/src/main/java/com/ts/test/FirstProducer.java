@@ -4,7 +4,6 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.MessageProperties;
-import org.springframework.amqp.core.Message;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -31,13 +30,12 @@ public class FirstProducer {
         connection.setVirtualHost("/");
         connection.setPort(5672);
         Connection connection1  = connection.newConnection();
-        Channel channel= connection1.createChannel(1);
-        Channel channel2= connection1.createChannel(1);
+        Channel channel= connection1.createChannel();
         channel.queueDeclare("test2",true,false,false,null);
         String msg = "nihao";
-            channel.basicPublish("","test2", MessageProperties.PERSISTENT_TEXT_PLAIN,msg.getBytes());
-//        channel.close();
-//        connection1.close();
+        channel.basicPublish("","test2", MessageProperties.PERSISTENT_TEXT_PLAIN,msg.getBytes());
+        channel.close();
+        connection1.close();
     }
 }
 
